@@ -13,6 +13,50 @@
     <title>ZeNmAx | Portfolio</title>
 
     <style>
+        /* Dark/Light Mode Toggle Button */
+.moon-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #1e293b;
+    border: none;
+    border-radius: 50%; /* Circle button */
+    cursor: pointer;
+    font-size: 24px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.moon-btn:hover {
+    transform: rotate(20deg);
+    background-color: #38bdf8;
+}
+
+/* Light mode styles (applied to body when toggled) */
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.light-mode header,
+body.light-mode footer,
+body.light-mode .social a,
+body.light-mode .cta a {
+    background-color: #f1f5f9;
+    color: #000000;
+}
+
+body.light-mode .social a:hover,
+body.light-mode .cta a:hover {
+    background-color: #38bdf8;
+    color: black;
+}
       .profile-pic {
     width: 160px;
     height: 160px;
@@ -172,5 +216,19 @@ user-focused digital experiences.
         <a href="https://github.com/ZeNmAx-XxX" target="_blank">GitHub</a>
     </div>
 </footer>
+    <script>
+const toggleButton = document.getElementById('darkModeToggle');
+
+toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+
+    // Change button icon
+    if(document.body.classList.contains('light-mode')){
+        toggleButton.textContent = '☀️'; // Sun for light mode
+    } else {
+        toggleButton.textContent = '🌙'; // Moon for dark mode
+    }
+});
+</script>
 </body>
 </html>
